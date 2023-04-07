@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //I have added playerRb = GetComponent<Rigidbody>(); in the void start to fix the problem 
         playerRb = GetComponent<Rigidbody>();
     }
 
