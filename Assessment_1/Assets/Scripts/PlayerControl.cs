@@ -4,19 +4,33 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-
+    //player jump
     public float jumpForce = 2;
+
+    //player rigidbody
     private Rigidbody playerRb;
+
+    //on ground 
     public bool isOnGround = true;
-    public Vector3 jump;
+    
+    //player rotate
+    public float horizontalInput;
+    public float turnSpeed = 5f;
+    //player movement
+    private float forwardInput;
     // i have added the variables to fix the problems 
     public float speed = 10f;
+    //player gravity 
+    public float gravityModifier = 1.5f;
 
     // Start is called before the first frame update
     void Start()
     {
         //I have added playerRb = GetComponent<Rigidbody>(); in the void start to fix the problem 
         playerRb = GetComponent<Rigidbody>();
+
+        //player gravity/physics
+        Physics.gravity *= gravityModifier;
     }
 
     // I have deleted the  void OnCollisionStay() {isGround = true;} to fix the problem
@@ -27,14 +41,18 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         //player game play (Jumping)
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround) ;
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround);
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
         }
-       
-        // play control moving
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        // player control movement (left & righ)
+        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+
+        //player rotate 
+        horizontalInput = Input.GetAxis("Horizontal");
+        //I have fixed the issue by adding , to up - issuse fix
+        transform.Rotate(Vector3.up, turnSpeed * horizontalInput * Time.deltaTime);
     }
 
     // on the ground 
