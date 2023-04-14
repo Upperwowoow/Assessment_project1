@@ -77,6 +77,17 @@ public class PlayerControl : MonoBehaviour
     }
 
     // on the ground 
-   
+
+    // player collecting Items 
+    // I have change(Collision2D other) to (Collide2D other)
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Bananas"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
+
+
 }
 
