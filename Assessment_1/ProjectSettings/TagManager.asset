@@ -7,6 +7,10 @@ TagManager:
   - Ground
   - Apple
   - Bananas
+  - Cherries
+  - Kiwi
+  - Trap
+  - Saw
   layers:
   - Default
   - TransparentFX

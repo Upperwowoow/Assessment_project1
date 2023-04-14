@@ -86,8 +86,51 @@ public class PlayerControl : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
-    }
 
+        else if (other.gameObject.CompareTag("Apple"))
+        {
+            
+            Destroy(other.gameObject);
+
+        }
+
+        else if (other.gameObject.CompareTag("Cherries"))
+        {
+
+            Destroy(other.gameObject);
+
+        }
+
+        else if (other.gameObject.CompareTag("Kiwi"))
+        {
+
+            Destroy(other.gameObject);
+
+        }
+        // I move the Trap code to public class from
+        // the private void OnTriggerEnter2D(Collider2D other)
+        // I issue fixed 
+
+
+    }
+    //Trap
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        //I deleted the else 
+        if (other.gameObject.CompareTag("Trap"))
+        {
+
+            Destroy(other.gameObject);
+            Debug.Log("Game Over!");
+        }
+
+        else if (other.gameObject.CompareTag("Saw"))
+        {
+
+            Destroy(other.gameObject);
+            Debug.Log("Game Over!");
+        }
+    }
 
 }
 
