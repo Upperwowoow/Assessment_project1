@@ -14,9 +14,7 @@ public class PlayerControl : MonoBehaviour
     //on ground 
     
     
-    //player rotate
-    public float horizontalInput;
-    public float turnSpeed = 5f;
+    
     // i have added the variables to fix the problems
     public float Speed = 10f;
     //player gravity 
@@ -70,10 +68,7 @@ public class PlayerControl : MonoBehaviour
         //I have delete most of the thing that is player movement 
         //I have also change vector3 to vector2 also Rigidbody3D to Rigidbody2D
 
-        //player rotate 
-        horizontalInput = Input.GetAxis("Horizontal");
-        //I have fixed the issue by adding , to up - issuse fix
-        transform.Rotate(Vector2.up, turnSpeed * horizontalInput * Time.deltaTime);
+        
     }
 
     // on the ground 
