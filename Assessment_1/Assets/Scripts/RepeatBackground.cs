@@ -17,7 +17,14 @@ public class RepeatBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //this how the background move down by using speed 
         transform.Translate(translation: Vector3.down * speed * Time.deltaTime);
+
+        // the backgorund will replace when the number drop down to the i have put in
+        if (transform.position.y < -3.216296f)
+        {
+            transform.position = StartPosition;
+        }
         
     }
 }
