@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    //player jump
+    //player jump/movement 
     public float jumpSpeed = 8f;
     private float direction = 0f;
+   
+    
+    public float xRange = 9;
 
     //player rigidbody
     private Rigidbody2D player;
 
     //on ground 
-    
-    
-    
+    public Transform groundCheck;
+    public float groundCheckRadius;
+    public LayerMask groundLayer;
+    private bool isTouchingGround;
+
+
+
     // i have added the variables to fix the problems
     public float Speed = 10f;
     //player gravity 
@@ -68,7 +75,21 @@ public class PlayerControl : MonoBehaviour
         //I have delete most of the thing that is player movement 
         //I have also change vector3 to vector2 also Rigidbody3D to Rigidbody2D
 
-        
+
+        // this code is for the player barrier 
+        // if it max range the player will not be able to move
+       
+        //left
+        if (transform.position.x < -xRange)
+        {
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        }
+
+        //right 
+        if (transform.position.x > xRange)
+        {
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        }
     }
 
     // on the ground 
@@ -77,8 +98,10 @@ public class PlayerControl : MonoBehaviour
     // I have change(Collision2D other) to (Collide2D other)
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //this code will tell the player the gameobject name
         if (other.gameObject.CompareTag("Bananas"))
         {
+            //if the player touches the gameobject that have the tag name whatere i put in 
             Destroy(other.gameObject);
         }
 
@@ -111,7 +134,9 @@ public class PlayerControl : MonoBehaviour
     //Trap
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //I deleted the else 
+        //I deleted the else issue fix
+        //this coding did the same thing the items code 
+        //but there is a gave over if the player touch it
         if (other.gameObject.CompareTag("Trap"))
         {
 
