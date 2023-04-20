@@ -44,10 +44,12 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        direction = Input.GetAxis("Horizontal");
         //player game play (Jumping)
         // I have change if (Input.GetKeyDown("jump")) to if (Input.GetKeyDown(KeyCode.Space)) 
         // issus fixed 
-        if (Input.GetKeyDown(KeyCode.Space))  
+        if (Input.GetKeyDown(KeyCode.Space) && isTouchingGround)
         {
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
             
