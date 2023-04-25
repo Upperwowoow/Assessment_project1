@@ -15,10 +15,7 @@ public class PlayerControl : MonoBehaviour
     private Rigidbody2D player;
 
     //on ground 
-    public Transform groundCheck;
-    public float groundCheckRadius;
-    public LayerMask groundLayer;
-    private bool isTouchingGround;
+    public bool isOnGround = true;
 
 
 
@@ -44,13 +41,13 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isTouchingGround = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-        direction = Input.GetAxis("Horizontal");
+       
         //player game play (Jumping)
         // I have change if (Input.GetKeyDown("jump")) to if (Input.GetKeyDown(KeyCode.Space)) 
         // issus fixed 
-        if (Input.GetKeyDown(KeyCode.Space) && isTouchingGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
+            isOnGround = false;
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
             
         }
@@ -151,6 +148,20 @@ public class PlayerControl : MonoBehaviour
 
             Destroy(other.gameObject);
             Debug.Log("Game Over!");
+        }
+
+        else if (other.gameObject.CompareTag("END"))
+        {
+
+            Debug.Log("GAME WIN!");
+        }
+
+        // first I check the code and look at the code above so 
+        // I replace the collison with the other issue fix 
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = true;
+            
         }
     }
 
