@@ -6,9 +6,13 @@ public class SpawnManager : MonoBehaviour
 {
 
     public GameObject[] GameObjectPrefabs;
+    
     private float spawnPosY = 30;
+    
     private float spawnRangeX = 9;
+    
     private float startDelay = 9;
+    
     private float spawnInterval = 1f;
     
 

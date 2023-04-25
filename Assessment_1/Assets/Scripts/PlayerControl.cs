@@ -7,8 +7,8 @@ public class PlayerControl : MonoBehaviour
     //player jump/movement 
     public float jumpSpeed = 8f;
     private float direction = 0f;
-   
-    
+
+    //player barrier 
     public float xRange = 9;
 
     //player rigidbody
@@ -17,7 +17,9 @@ public class PlayerControl : MonoBehaviour
     //on ground 
     public bool isOnGround = true;
 
-
+    //gameover 
+    public bool gameOver;
+    
 
     // i have added the variables to fix the problems
     public float Speed = 10f;
@@ -41,7 +43,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
         //player game play (Jumping)
         // I have change if (Input.GetKeyDown("jump")) to if (Input.GetKeyDown(KeyCode.Space)) 
         // issus fixed 
@@ -49,8 +51,9 @@ public class PlayerControl : MonoBehaviour
         {
             isOnGround = false;
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-            
+
         }
+
         // player control movement (left & righ)
         direction = Input.GetAxis("Horizontal");
 
@@ -126,7 +129,7 @@ public class PlayerControl : MonoBehaviour
         }
         // I move the Trap code to public class from
         // the private void OnTriggerEnter2D(Collider2D other)
-        // I issue fixed 
+        // issue fixed 
 
 
     }
@@ -138,21 +141,21 @@ public class PlayerControl : MonoBehaviour
         //but there is a gave over if the player touch it
         if (other.gameObject.CompareTag("Trap"))
         {
-
+            gameOver = true;
             Destroy(other.gameObject);
             Debug.Log("Game Over!");
         }
 
         else if (other.gameObject.CompareTag("Saw"))
         {
-
+            gameOver = true;
             Destroy(other.gameObject);
             Debug.Log("Game Over!");
         }
 
         else if (other.gameObject.CompareTag("END"))
         {
-
+            gameOver = true;
             Debug.Log("GAME WIN!");
         }
 
