@@ -54,6 +54,8 @@ public class PlayerControl : MonoBehaviour
 
         }
 
+        
+
         // player control movement (left & righ)
         direction = Input.GetAxis("Horizontal");
 
