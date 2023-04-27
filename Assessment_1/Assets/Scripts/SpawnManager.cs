@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-
+    //gameobject/gameobjectprefabs
     public GameObject[] GameObjectPrefabs;
-    
+    //the spawn range on the y axis
     private float spawnPosY = 30;
-    
+    //the spawn range on the x axis
     private float spawnRangeX = 9;
-    
+    //the delay of the spawn 
     private float startDelay = 9;
     
     private float spawnInterval = 1f;
@@ -32,9 +32,8 @@ public class SpawnManager : MonoBehaviour
     void SpawnRandomGameObject()
     {
         // Set random spawn location and random object index
-
         int GameObject = Random.Range(0, GameObjectPrefabs.Length);
-        
+        //the spawn range of the x and set the where it spawn on the y axis 
         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), spawnPosY, 0);
        
 

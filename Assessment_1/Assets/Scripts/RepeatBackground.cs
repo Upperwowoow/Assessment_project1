@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class RepeatBackground : MonoBehaviour
 {
-
+    //speed 
     public float speed = 4f;
+    //resett variable 
     private Vector3 StartPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        //on the start the background will transform it's position 
         StartPosition = transform.position;
     }
 
