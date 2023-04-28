@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     //gameobject/gameobjectprefabs
     public GameObject[] GameObjectPrefabs;
     //the spawn range on the y axis
-    private float spawnPosY = 30;
+    private float spawnPosY = 80;
     //the spawn range on the x axis
     private float spawnRangeX = 9;
     //the delay of the spawn 
