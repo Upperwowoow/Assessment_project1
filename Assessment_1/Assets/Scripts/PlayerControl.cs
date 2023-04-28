@@ -144,14 +144,12 @@ public class PlayerControl : MonoBehaviour
         if (other.gameObject.CompareTag("Trap"))
         {
             gameOver = true;
-            Destroy(other.gameObject);
             Debug.Log("Game Over!");
         }
 
         else if (other.gameObject.CompareTag("Saw"))
         {
             gameOver = true;
-            Destroy(other.gameObject);
             Debug.Log("Game Over!");
         }
 
