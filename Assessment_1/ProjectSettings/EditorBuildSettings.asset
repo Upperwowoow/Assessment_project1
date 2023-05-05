@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/3.unity
     guid: 7769eabe134b0014688dd1b8e84a4cd9
   - enabled: 1
-    path: Assets/End Screem.unity
-    guid: 390f0650c3e158b40b60478304e76cc0
+    path: Assets/GameOver.unity
+    guid: e2a5db661ed63b24c9a8dff2d7c98f5f
+  - enabled: 1
+    path: Assets/GameWin.unity
+    guid: b08d7efaa4867c843861feb91a83143f
   m_configObjects: {}

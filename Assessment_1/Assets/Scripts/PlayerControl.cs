@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -140,23 +141,32 @@ public class PlayerControl : MonoBehaviour
     {
         //I deleted the else issue fix
         //this coding did the same thing the items code 
-        //but there is a gave over if the player touch it
+        //but there is a debug.log gave over if the player touch it
         if (other.gameObject.CompareTag("Trap"))
         {
+            //it will tell the game that when the player touches the comparetag the gameOver = true
             gameOver = true;
+            //if the player touches the comparetag (Trap) it will praint out GameOver in the console
             Debug.Log("Game Over!");
+            // when the player touches the comparetag (Trap) it will switch to the GameOver scene
+            SceneManager.LoadScene("GameOver");
         }
 
         else if (other.gameObject.CompareTag("Saw"))
         {
+            //it will tell the game that when the player touches the comparetag the gameOver = true
             gameOver = true;
+            //if the player touches the comparetag (saw) it will praint out GameOver in the console
             Debug.Log("Game Over!");
+            // when the player touches the comparetag (saw) it will switch to the GameOver scene
+            SceneManager.LoadScene("GameOver");
         }
 
         else if (other.gameObject.CompareTag("END"))
         {
             gameOver = true;
             Debug.Log("GAME WIN!");
+            SceneManager.LoadScene("GameWin");
         }
 
         // first I check the code and look at the code above so 
