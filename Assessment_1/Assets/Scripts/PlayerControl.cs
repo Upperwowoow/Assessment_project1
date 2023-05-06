@@ -27,6 +27,11 @@ public class PlayerControl : MonoBehaviour
     //player gravity 
     public float gravityModifier = 1.5f;
 
+    //Audio
+    private AudioSource playerAudio;
+    public AudioClip jumpSound;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +40,9 @@ public class PlayerControl : MonoBehaviour
 
         //player gravity/physics
         Physics.gravity *= gravityModifier;
+
+        //Audio
+        playerAudio = GetComponent<AudioSource>();
     }
 
     // I have deleted the  void OnCollisionStay() {isGround = true;} to fix the problem
@@ -52,7 +60,7 @@ public class PlayerControl : MonoBehaviour
         {
             isOnGround = false;
             player.velocity = new Vector2(player.velocity.x, jumpSpeed);
-
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
         }
 
         
@@ -150,6 +158,7 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("Game Over!");
             // when the player touches the comparetag (Trap) it will switch to the GameOver scene
             SceneManager.LoadScene("GameOver");
+            
         }
 
         else if (other.gameObject.CompareTag("Saw"))
@@ -160,6 +169,7 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("Game Over!");
             // when the player touches the comparetag (saw) it will switch to the GameOver scene
             SceneManager.LoadScene("GameOver");
+            
         }
 
         else if (other.gameObject.CompareTag("END"))
