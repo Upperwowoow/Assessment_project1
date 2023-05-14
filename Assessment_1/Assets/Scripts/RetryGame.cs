@@ -19,6 +19,7 @@ public class RetryGame : MonoBehaviour
 
     public void LoadGame()
     {
+        // if the player press playagain or tryagin it will load you into game menu
         SceneManager.LoadScene("Game menu");
     }
 

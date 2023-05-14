@@ -75,7 +75,7 @@ public class PlayerControl : MonoBehaviour
 
         else if (direction < 0f)
         {
-            //I have spell velocity wrong 
+            //I have spell velocity wrong iusse fix 
             player.velocity = new Vector2(direction * Speed, player.velocity.y);
         }
 
@@ -95,12 +95,14 @@ public class PlayerControl : MonoBehaviour
         //left
         if (transform.position.x < -xRange)
         {
+            //if the player go to the left it's will stop you at -9 
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
 
         //right 
         if (transform.position.x > xRange)
         {
+            //if the player go to the right it's will stop you at +9
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
     }
